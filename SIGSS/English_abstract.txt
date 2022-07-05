@@ -1,0 +1,7 @@
+In recent years, the Software Bill of Materials (SBoM) has been increasingly adopted to manage risks in the supply
+chain, and the Software Package Data Exchange (SPDX) is one of the main SBoM specifications, created to ensure that users
+comply with licenses. On the other hand, it is important to understand the dependencies in order to comply with the license.
+Currently, however, there are no tools that automatically generate SPDX files including dependencies. Therefore, we developed
+a tool to automatically generate SPDX files including dependency descriptions for Debian packages. As a result, we succeeded
+in generating SPDX files that include dependency descriptions and satisfy the SPDX requirements. This paper describes the
+method and results of the generation.
