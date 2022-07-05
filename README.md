@@ -1,1 +1,4 @@
 # spdx_lite_depends
+## 使い方
+SPDXファイルを作成したいDebianパッケージ群をspdx_generatedの下に置き，
+app下のmain.pyを実行すると，package_for_analyzeの下に対応するSPDXファイル群が生成される．
