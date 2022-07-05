@@ -1,0 +1,9 @@
+{
+    "username": "fossy",
+    "password": "fossy",
+    "token_scope": "write",
+    "token_expire": "2022-08-02",
+    "token_name": "fossology_python_token1",
+    "token_nummber": 1,
+    "token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTk0ODQ3OTksIm5iZiI6MTY1NjgwNjQwMCwianRpIjoiTXk0eiIsInNjb3BlIjoid3JpdGUifQ.9BoDoUx79YPQQukgDKZg1U0z4NJHstklPm_bAJPqkgM"
+}
