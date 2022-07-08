@@ -18,12 +18,11 @@ if __name__ == '__main__':
     # ディレクトリを設定
     os.chdir(os.path.dirname(__file__))
     os.chdir("..")
-    os.mkdir("./tmp")
 
     deb_files = glob.glob("./package_for_analyze/*.deb")
 
     for deb_file in deb_files:
-
+        os.mkdir("./tmp")
         extend.extend_deb('.' + deb_file)
 
         copyright_spdx = './tmp/copyright.spdx'
