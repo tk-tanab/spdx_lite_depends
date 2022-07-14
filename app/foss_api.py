@@ -1,10 +1,13 @@
-import requests
-import json
-import time
 import datetime
-from collections import OrderedDict
 import glob
+import json
 import os
+import time
+from collections import OrderedDict
+
+import requests
+
+url = "http://localhost:8081"
 
 # 初期設定
 def set_token_folder(access_token_json):
@@ -27,7 +30,7 @@ def get_access_token(token_num, token_name, access_token_json):
     next_num = token_num + 1
     body["token_expire"] = str(expire_date)
     body["token_name"] = token_name + str(next_num)
-    result = requests.post('http://localhost:8081/repo/api/v1/tokens', headers=headers, data=json.dumps(body)).json()
+    result = requests.post(url + '/repo/api/v1/tokens', headers=headers, data=json.dumps(body)).json()
 
     # 次のアクセストークンを作るための情報を入れてトークンの内容を保存
     body["token_nummber"] = next_num
@@ -50,7 +53,7 @@ def make_folder(token):
     }
 
     # API接続の実行
-    result = requests.post('http://localhost:8081/repo/api/v1/folders', headers=headers).json()
+    result = requests.post(url + '/repo/api/v1/folders', headers=headers).json()
     # folderのIDを返す
     return result["message"]
 
@@ -60,10 +63,12 @@ def get_folderID(token):
     headers = {'Authorization':token}
 
     # API接続の実行
-    result = requests.get('http://localhost:8081/repo/api/v1/folders', headers=headers).json()
+    result = requests.get(url + '/repo/api/v1/folders', headers=headers).json()
     for folder in list(result):
+        print(folder)
         if folder["name"] == "fossology_python":
             return folder["id"]
+    return 0
 
 # アクセストークンの確認or取得
 def take_access_token(access_token_dict, access_token_json):
@@ -90,7 +95,7 @@ def upload_copyright(token, copyright_file, folderID):
 
     # API接続の実行
     with open(copyright_file, 'rb') as file:
-        result = requests.post('http://localhost:8081/repo/api/v1/uploads', headers=headers, files={'fileInput': file}).json()
+        result = requests.post(url + '/repo/api/v1/uploads', headers=headers, files={'fileInput': file}).json()
     return str(result["message"])
 
 # 解析依頼
@@ -122,7 +127,7 @@ def analyze_copyright(uploadId, token, folderID):
 
     # API接続の実行
     # 結果を受けて出力すればテスト可能
-    requests.post('http://localhost:8081/repo/api/v1/jobs', headers=headers, data=json.dumps(body))
+    requests.post(url + '/repo/api/v1/jobs', headers=headers, data=json.dumps(body))
 
 def get_spdx(uploadId, token, copyright_spdx):
     # FOSSologyに送信する情報
@@ -133,7 +138,7 @@ def get_spdx(uploadId, token, copyright_spdx):
     }
 
     # API接続の実行
-    result = requests.get('http://localhost:8081/repo/api/v1/report', headers=headers).json()
+    result = requests.get(url + '/repo/api/v1/report', headers=headers).json()
 
     # SPDX生成を待つ
     time.sleep(5)
@@ -143,7 +148,7 @@ def get_spdx(uploadId, token, copyright_spdx):
     }
 
     # API接続の実行
-    result = requests.get('http://localhost:8081/repo/api/v1/report/' + str(result['message']).rsplit('/',1)[1], headers=headers)
+    result = requests.get(url + '/repo/api/v1/report/' + str(result['message']).rsplit('/',1)[1], headers=headers)
     with open(copyright_spdx, mode='w', encoding='utf-8') as f:
         f.write(str(result.text))
 
