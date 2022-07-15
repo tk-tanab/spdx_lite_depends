@@ -1,2 +1,4 @@
 /.vscode/
 app/__pycache__/
+
+access_token.json
