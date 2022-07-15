@@ -1,6 +1,7 @@
 import json
 import os
 
+
 # json形式のSPDXをTagValue形式に変換
 def json_to_tv(spdx_json):
     # spdxファイルを読む
