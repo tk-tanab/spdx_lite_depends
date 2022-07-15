@@ -11,3 +11,6 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/home/vscode/.loca
 
 # Install softwares
 RUN apt update && apt install -y zstd
+
+USER vscode
+ENV PATH "/home/vscode/.poetry/bin:$PATH"

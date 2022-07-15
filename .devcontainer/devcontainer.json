@@ -27,8 +27,8 @@
 	// This config accepts string or array. If you use array form destructure command like following; not a list of commands.
 	// ["echo", "hello"]
 	"postStartCommand": [
-		"/home/vscode/.local/bin/poetry install",
-		"/usr/bin/git config --global gpg.program /usr/bin/gpg && sudo chown vscode .venv"
+		"poetry",
+		"install"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
