@@ -27,7 +27,9 @@
 	// ["echo", "hello"]
 	"postStartCommand": "/usr/bin/git config --global gpg.program /usr/bin/gpg && sudo chown vscode .venv",
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [
+		8081
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.

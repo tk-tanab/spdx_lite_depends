@@ -9,14 +9,6 @@ import json_to_tv
 import merge_json
 import tv_to_json
 
-# 実行するには
-# https://github.com/OpenChain-Project/Japan-WG-General/blob/master/Compliance-Tooling/FOSSology/Installation/using_docker_debian_jp.md
-# に従い，「3. FOSSology を動かしてみる」までを行う必要がある
-
-deb_file = (
-    "/Users/taketo/修論/api_test/complete_tool/packages/python3.9_3.9.7-2build1_amd64.deb"
-)
-
 if __name__ == "__main__":
     # ディレクトリを設定
     os.chdir(os.path.dirname(__file__))

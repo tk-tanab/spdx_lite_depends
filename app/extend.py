@@ -22,7 +22,7 @@ def extend_deb(deb_file):
     for tar_file in tar_files:
         # 展開用のディレクトリを作成
         dir_name = tar_file.split(".", 1)[0]
-        os.mkdir(dir_name)
+        os.makedirs(dir_name, exist_ok=True)
 
         # .tar.zstファイルが展開された場合は，.tarファイルに変更
         tar_name, extension = tar_file.rsplit(".", 1)
