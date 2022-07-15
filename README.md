@@ -8,13 +8,13 @@ Place the Debian packages for which you want to create SPDX files under spdx_gen
 
 ## 環境構築
 ### VSCode + devcontainer (推奨)
-DockerとDocker Composeをインストールしていれば、VSCode経由で開発環境を開くことができます。
+DockerとDocker Composeをインストールしていれば，VSCode経由で開発環境を開くことができます．
 詳しくは: https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container
 
 ### GitHub Codespaces
-[GitHub Codespaces](https://github.co.jp/features/codespaces)に登録していれば、Codespaces経由で開くことができます。
+[GitHub Codespaces](https://github.co.jp/features/codespaces)に登録していれば，Codespaces経由で開くことができます．
 
 ### 自前で設定
-- fossologyのコンテナを立てます。
-- Python 3.10 と Pythonライブラリのpoetry を導入します。
-- `poetry install`で必要な依存ライブラリをダウンロードします。
+- fossologyのコンテナを立てます．　詳しくは: https://github.com/OpenChain-Project/Japan-WG-General/blob/master/Compliance-Tooling/FOSSology/Installation/using_docker_debian_jp.md
+- Python 3.10 と Pythonライブラリのpoetry を導入します．
+- `poetry install`で必要な依存ライブラリをダウンロードします．
