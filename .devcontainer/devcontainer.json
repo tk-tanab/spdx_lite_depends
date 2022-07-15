@@ -7,6 +7,7 @@
 	"workspaceFolder": "/workspace/spdx_lite_depends",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
+		"python.defaultInterpreterPath": ".venv/bin/python",
 		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": false,
 		"python.linting.flake8Enabled": true,
@@ -25,7 +26,10 @@
 	// A location of gpg might differ from host machine's git config.
 	// This config accepts string or array. If you use array form destructure command like following; not a list of commands.
 	// ["echo", "hello"]
-	"postStartCommand": "/usr/bin/git config --global gpg.program /usr/bin/gpg && sudo chown vscode .venv",
+	"postStartCommand": [
+		"/home/vscode/.local/bin/poetry install",
+		"/usr/bin/git config --global gpg.program /usr/bin/gpg && sudo chown vscode .venv"
+	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 		8081

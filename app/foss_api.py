@@ -165,6 +165,10 @@ def get_spdx(uploadId, token, copyright_spdx):
 def foss_api(copyright_file, copyright_spdx):
     # ローカルに保存していたアクセストークン情報を見に行く
     access_token_json = r"./access_token.json"
+    if os.path.exists(access_token_json) == False:
+        with open(access_token_json, "w") as f:
+            f.write("{}\n")
+
     with open(access_token_json) as f:
         access_token_dict = json.load(f)
 
