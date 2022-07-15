@@ -15,6 +15,6 @@ DockerとDocker Composeをインストールしていれば，VSCode経由で開
 [GitHub Codespaces](https://github.co.jp/features/codespaces)に登録していれば，Codespaces経由で開くことができます．
 
 ### 自前で設定
-- fossologyのコンテナを立てます．　詳しくは: https://github.com/OpenChain-Project/Japan-WG-General/blob/master/Compliance-Tooling/FOSSology/Installation/using_docker_debian_jp.md
+- fossologyのコンテナを立てます．詳しくは: https://github.com/OpenChain-Project/Japan-WG-General/blob/master/Compliance-Tooling/FOSSology/Installation/using_docker_debian_jp.md
 - Python 3.10 と Pythonライブラリのpoetry を導入します．
 - `poetry install`で必要な依存ライブラリをダウンロードします．
