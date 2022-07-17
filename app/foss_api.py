@@ -7,15 +7,16 @@ from collections import OrderedDict
 
 import requests
 
-url = "http://fossology"
+url = "http://localhost:8081"
+url2 = "http://fossology"
 
-# 初期設定
+
 def set_token_folder(access_token_json):
-    token = get_access_token(0, "fossology_python_token", access_token_json)
+    token = get_access_token(3, "fossology_python_token", access_token_json)
     return token, make_folder(token)
+# 初期設定
 
 
-# アクセストークンの獲得
 def get_access_token(token_num, token_name, access_token_json):
     # FOSSologyに送信する情報
     headers = {"Content-Type": "application/json"}
@@ -39,6 +40,7 @@ def get_access_token(token_num, token_name, access_token_json):
 
     # トークンを返す
     return result["Authorization"]
+# アクセストークンの獲得
 
 
 # 作業用フォルダをFOSSology上に作成
@@ -53,7 +55,8 @@ def make_folder(token):
     }
 
     # API接続の実行
-    result = requests.post(url + "/repo/api/v1/folders", headers=headers).json()
+    result = requests.post(url + "/repo/api/v1/folders",
+                           headers=headers).json()
     # folderのIDを返す
     return result["message"]
 
@@ -134,7 +137,8 @@ def analyze_copyright(uploadId, token, folderID):
 
     # API接続の実行
     # 結果を受けて出力すればテスト可能
-    requests.post(url + "/repo/api/v1/jobs", headers=headers, data=json.dumps(body))
+    requests.post(url + "/repo/api/v1/jobs",
+                  headers=headers, data=json.dumps(body))
 
 
 def get_spdx(uploadId, token, copyright_spdx):
@@ -154,7 +158,8 @@ def get_spdx(uploadId, token, copyright_spdx):
 
     # API接続の実行
     result = requests.get(
-        url + "/repo/api/v1/report/" + str(result["message"]).rsplit("/", 1)[1],
+        url + "/repo/api/v1/report/" +
+        str(result["message"]).rsplit("/", 1)[1],
         headers=headers,
     )
     with open(copyright_spdx, mode="w", encoding="utf-8") as f:
